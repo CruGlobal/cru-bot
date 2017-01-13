@@ -1,0 +1,18 @@
+{
+  "name": "cru-bot",
+  "version": "0.0.1",
+  "description": "Cru Chat Bot",
+  "main": "index.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "author": "Brian Zoetewey <brian.zoetewey@ccci.org>",
+  "license": "BSD-3-Clause",
+  "dependencies": {
+    "bluebird": "^3.4.7",
+    "botbuilder": "^3.5.3",
+    "dotenv-extended": "^1.0.4",
+    "googleapis": "^16.1.0",
+    "restify": "^4.3.0"
+  }
+}

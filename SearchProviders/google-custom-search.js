@@ -9,7 +9,6 @@ function create(apiKey, searchEngineId) {
     return {
         search: function (query) {
             return new Promise((resolve, reject) => {
-                console.log('GoogleCustomSearch.inputQuery:', query);
                 var params = {
                     auth: key,
                     cx: engineId,
@@ -18,15 +17,13 @@ function create(apiKey, searchEngineId) {
                     start: 1 + ((query.pageNumber - 1) * query.pageSize)
                 };
 
-                console.log('GoogleCustomSearch.params:', params);
                 customsearch.cse.list(params, (err, results) => {
-                    console.log(err, results);
                     if (err) {
                         return reject(err);
                     }
 
                     resolve({
-                        results: results.items
+                        results: results.items || []
                     });
                 });
             });

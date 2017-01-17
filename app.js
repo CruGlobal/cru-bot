@@ -58,7 +58,6 @@ var SearchDialogLibrary = require('./SearchDialogLibrary');
 var googleSearchResultsMapper = SearchDialogLibrary.defaultResultsMapper(googlesearchToSearchHit);
 
 var googlesearch = SearchDialogLibrary.create('googlesearch', {
-    multipleSelection: false,
     search: (query) => googleCustomSearchClient.search(query).then(googleSearchResultsMapper),
 });
 
@@ -69,6 +68,7 @@ function googlesearchToSearchHit(googlesearch) {
     return {
         key: googlesearch.cacheId,
         title: googlesearch.title,
-        description: googlesearch.snippet
+        description: googlesearch.snippet,
+        result: googlesearch
     };
 }

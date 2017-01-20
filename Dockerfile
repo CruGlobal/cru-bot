@@ -6,7 +6,7 @@ RUN apt-get update \
     && rm -r /var/lib/apt/lists/*
 
 ENV RESTIFY_PORT=80
-ENV SYSLOG_HOST=syslog.uscm.org
+ENV SYSLOG_HOST=syslogng-staging.aws.cru.org
 ENV SYSLOG_PORT=6010
 
 EXPOSE $RESTIFY_PORT

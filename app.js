@@ -31,15 +31,15 @@ server.post('/api/messages', connector.listen());
 //=========================================================
 
 // Start Searcher when conversation with bot is started, by initiating the root dialog
-bot.on('conversationUpdate', (message) => {
-    if (message.membersAdded) {
-        message.membersAdded.forEach((identity) => {
-            if (identity.id === message.address.bot.id) {
-                bot.beginDialog(message.address, '/');
-            }
-        });
-    }
-});
+// bot.on('conversationUpdate', (message) => {
+//     if (message.membersAdded) {
+//         message.membersAdded.forEach((identity) => {
+//             if (identity.id === message.address.bot.id) {
+//                 bot.beginDialog(message.address, '/');
+//             }
+//         });
+//     }
+// });
 
 bot.dialog('/', [(session) => {
     // Trigger search

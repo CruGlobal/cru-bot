@@ -31,21 +31,23 @@ server.post('/api/messages', connector.listen());
 //=========================================================
 
 // Start Searcher when conversation with bot is started, by initiating the root dialog
-// bot.on('conversationUpdate', (message) => {
-//     if (message.membersAdded) {
-//         message.membersAdded.forEach((identity) => {
-//             if (identity.id === message.address.bot.id) {
-//                 bot.beginDialog(message.address, '/');
-//             }
-//         });
-//     }
-// });
+bot.on('conversationUpdate', (message) => {
+    if (message.membersAdded) {
+        message.membersAdded.forEach((identity) => {
+            if (identity.id === message.address.bot.id) {
+                bot.beginDialog(message.address, '/');
+            }
+        });
+    }
+});
 
+// Web Chat calls this initially
 bot.dialog('/', [(session) => {
-    // Trigger search
-    session.beginDialog('googlesearch:/');
-}, (session, args) => {
-    session.send('DONE!');
+    if (session.message && session.message.text) {
+        session.beginDialog('googlesearch:/', { response: session.message.text });
+    } else {
+        session.beginDialog('googlesearch:/');
+    }
 }]);
 
 //=========================================================

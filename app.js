@@ -8,7 +8,7 @@ require('dotenv-extended').load();
 
 // Setup Restify Server
 var server = restify.createServer();
-server.listen(process.env.RESTIFY_PORT || 3978, function () {
+server.listen(3978, function () {
     console.log('%s listening to %s', server.name, server.url);
 });
 

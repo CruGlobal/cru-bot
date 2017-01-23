@@ -1,0 +1,3 @@
+[submodule "webchat"]
+	path = webchat
+	url = git@github.com:CruGlobal/BotFramework-WebChat.git

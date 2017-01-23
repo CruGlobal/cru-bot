@@ -71,6 +71,7 @@ function googlesearchToSearchHit(googlesearch) {
         key: googlesearch.cacheId,
         title: googlesearch.title,
         description: googlesearch.snippet,
+        imageUrl: googlesearch.pagemap.cse_thumbnail ? googlesearch.pagemap.cse_thumbnail[0].src : undefined,
         result: googlesearch
     };
 }
